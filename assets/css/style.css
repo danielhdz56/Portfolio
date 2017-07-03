@@ -1,0 +1,44 @@
+/* Gradient Background */
+#canvas-basic {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+/* Jumbotron and navbar */
+.jumbotron, .navbar {
+	background: rgba(151, 161, 189, 0.7);
+}
+@media screen and (max-width: 767px) {
+	.jumbotron h1 {
+		text-align: center;
+	}
+}
+@media screen and (min-width: 768px) {
+	.jumbotron {
+		margin-left: 3rem;
+		margin-right: 3rem;
+	}
+}
+/* Sticky Footer */
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+.sticky-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height:60px; /* Vertically center the text here */
+}
