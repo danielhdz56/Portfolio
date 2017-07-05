@@ -20,7 +20,7 @@
 	}
 }
 @media screen and (min-width: 768px) {
-	.jumbotron {
+	.jumbotron, {
 		margin-left: 3rem;
 		margin-right: 3rem;
 	}

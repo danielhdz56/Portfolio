@@ -27,25 +27,44 @@
 	  	</ul>
 	  </div>
 	</nav>
-	<div class="card text-center">
-	  <div class="card-header">
-	    <ul class="nav nav-tabs card-header-tabs">
-	      <li class="nav-item">
-	        <a class="nav-link active" href="#">Active</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Link</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#">Disabled</a>
-	      </li>
-	    </ul>
-	  </div>
-	  <div class="card-block">
-	    <h4 class="card-title">Special title treatment</h4>
-	    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-	    <a href="#" class="btn btn-primary">Go somewhere</a>
-	  </div>
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-12">
+				<div class="card text-center">
+					<div class="card-header">
+				    	<ul class="nav nav-tabs nav-fill card-header-tabs" role="tablist">
+				      		<li class="nav-item">
+				        		<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Project</a>
+				      		</li>
+				      		<li class="nav-item">
+				      			<a class="nav-link" data-toggle="tab" href="#code" role="tab">Github</a>
+				      		</li>
+				    	</ul>
+				  	</div>
+				  	<!-- Tab panes -->
+				  	<div class="tab-content">
+				  		<div class="tab-pane active" id="description" role="tabpanel">
+						  	<img class="card-img-top mx-auto" src="assets/images/bomb.svg" alt="Card image cap" width="200px">
+						  	<div class="card-block">
+						   		<h4 class="card-title">Pokemon RPG</h4>
+						    	<p class="card-text">Interactive game that dynamically updates the HTML page using the jQuery library.</p>
+						    	<a href="https://danielhdz56.github.io/week-4-game/" target="_blank" class="btn btn-primary">Go Live!</a>
+						  	</div>
+						</div>
+						<div class="tab-pane" id="code" role="tabpanel">
+							<img class="card-img-top mx-auto" src="assets/images/mill.svg" alt="Card image cap" width="200px">
+						  	<div class="card-block">
+						   		<h4 class="card-title">Pokemon RPG</h4>
+						    	<p class="card-text">Interactive game that dynamically updates the HTML page using the jQuery library.</p>
+						    	<a href="https://github.com/danielhdz56/week-4-game.git" target="_blank" class="btn btn-primary">View the Code!</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6">H</div>
+			<div class="col-12 col-sm-6">E</div>
+		</div>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -72,5 +91,6 @@
     <!-- Granim Gradient first, then my JS. -->
 	<script type="text/javascript" src="assets/javascript/granim.min.js"></script>
 	<script type="text/javascript" src="assets/javascript/canvas.js"></script>
+	<script type="text/javascript" src="assets/javascript/script.js"></script>
 </body>
 </html>
