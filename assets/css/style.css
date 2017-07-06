@@ -11,13 +11,9 @@
 	z-index: -1;
 }
 /* Jumbotron and navbar */
-.jumbotron, .navbar, .card {
+.jumbotron, .navbar {
 	background: rgba(151, 161, 189, 0.7);
 }
-.card-header {
-	background: #2d404e;
-}
-
 @media screen and (max-width: 767px) {
 	.jumbotron h1 {
 		text-align: center;
@@ -28,6 +24,56 @@
 		margin-left: 3rem;
 		margin-right: 3rem;
 	}
+}
+/* Cards */
+.card-header {
+	background: #2d404e;
+}
+.card {
+	border-color: #2d404e;
+}
+.nav-tabs .nav-item.show .nav-link {
+	border-color: rgba(0, 0, 0, 0.22) rgba(0, 0, 0, 0.22) rgba(255, 255, 255, 0);
+}
+.nav-tabs .nav-link {
+	border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.nav-tabs .nav-link:hover {
+	border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.nav-tabs .nav-link.active, .card {
+	background: #89bdc2;
+	border-color: rgba(0, 0, 0, 0.09) rgba(0, 0, 0, 0.09) #89bdc2;
+}
+a {
+	color: #48b19b;
+}
+a:hover {
+	color: #50ffda;
+}
+.btn-primary {
+    background-color: #323ec7;
+    border-color: #323ec7;
+}
+/* Pagination */
+.page-link {
+    color: #fff;
+    background-color: rgba(72, 177, 155, 0.67);
+    border-color: rgba(0, 0, 0, 0);
+}
+.page-item.disabled .page-link {
+	color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(72, 177, 155, 0.49);
+    border-color: rgba(0, 0, 0, 0);
+}
+.page-item.active .page-link {
+    background-color: #323ec7;
+    border-color: #323ec7;
+}
+.page-link:focus, .page-link:hover {
+    color: #323ec7;
+    background-color: rgba(50, 62, 199, 0.34);
+    border-color: #48b19b;
 }
 /* Sticky Footer */
 html {
@@ -45,10 +91,4 @@ body {
 	/* Set the fixed height of the footer here */
 	height: 60px;
 	line-height:60px; /* Vertically center the text here */
-}
-.nav-tabs .nav-item.show .nav-link {
-	border-color: rgba(0, 0, 0, 0.22) rgba(0, 0, 0, 0.22) rgba(255, 255, 255, 0);
-}
-.nav-tabs .nav-link.active {
-	background: #89bdc2;
 }
