@@ -47,7 +47,11 @@
 						  	<img class="card-img-top mx-auto mt-4" src="assets/images/insignia.svg" alt="Card image cap" width="200px">
 						  	<div class="card-block">
 						   		<h4 class="card-title">Pokemon RPG</h4>
-						    	<p class="card-text">Interactive game that dynamically updates the HTML page using the jQuery library.</p>
+						   		<p class="card-text"><strong>Type: </strong>Bootcamp Homework</p>
+						   		<p class="card-text"><strong>Date: </strong>Jun 27, 2017 - Jul 10, 2017</p>
+						   		<p class="card-text"><strong>Description: </strong>Interactive game that dynamically updates the HTML page using the jQuery library.</p>
+						    	<p class="card-text"><strong>Personal Takeaways: </strong>Dynamically updated HTML page by looping through an array that contained objects. Applied the remove and empty methods to manipulate the DOM on reset.</p>
+						    	<p class="card-text"><strong>Exceeded requirements by: </strong>Adding music, user-bar/computer-bar, hover effects on player, and what I consider a killer UI.</p>
 						    	<a href="https://danielhdz56.github.io/week-4-game/" target="_blank" class="btn btn-primary">Go Live!</a>
 						  	</div>
 						</div>
@@ -96,8 +100,12 @@
 				  		<div class="tab-pane active" id="hangmanDescription" role="tabpanel">
 						  	<img class="card-img-top mx-auto mt-4" src="assets/images/world.svg" alt="Card image cap" width="200px">
 						  	<div class="card-block">
-						   		<h4 class="card-title">Hangman</h4>
-						    	<p class="card-text">Interactive game that dynamically updates the HTML page using JavaScript code.</p>
+						   		<h4 class="card-title">Hangman (Countries)</h4>
+						    	<p class="card-text"><strong>Type: </strong>Bootcamp Homework</p>
+						   		<p class="card-text"><strong>Date: </strong>Jun 21, 2017 - Jun 27, 2017</p>
+						   		<p class="card-text"><strong>Description: </strong>Interactive game that dynamically updates the HTML page using JavaScript code.</p>
+						    	<p class="card-text"><strong>Personal Takeaways: </strong>Manipulated array in order to match, and replace data. Used vanilla Javascript to make dynamic transitions.</p>
+						    	<p class="card-text"><strong>Exceeded requirements by: </strong>Making sure to account for countries that contained spaces, punctuation, prepositions, and conjunctions. Dynamically adding elements on incorrect guesses.</p>
 						    	<a href="https://danielhdz56.github.io/Hangman-Game/" target="_blank" class="btn btn-primary">Go Live!</a>
 						  	</div>
 						</div>
@@ -130,7 +138,11 @@
 						  	<img class="card-img-top mx-auto mt-4" src="assets/images/magic-wand.svg" alt="Card image cap" width="200px">
 						  	<div class="card-block">
 						   		<h4 class="card-title">Psychic Game</h4>
-						    	<p class="card-text">Interactive game that dynamically updates the HTML page using the jQuery library.</p>
+						    	<p class="card-text"><strong>Type: </strong>Bootcamp Homework</p>
+						   		<p class="card-text"><strong>Date: </strong>Jun 20, 2017 - Jun 21, 2017</p>
+						   		<p class="card-text"><strong>Description: </strong>Interactive game that dynamically updates the HTML page using JavaScript code.</p>
+						    	<p class="card-text"><strong>Personal Takeaways: </strong>Created Random letters using the JavaScript Math object. Manipulated the DOM using the getElementByID Method.</p>
+						    	<p class="card-text"><strong>Exceeded requirements by: </strong>Doing both homeworks (this one and the hangman). Finishing the psychic game in two days (before covering the topics in class). Google Fu!</p>
 						    	<a href="https://danielhdz56.github.io/Psychic-Game/index.html" target="_blank" class="btn btn-primary">Go Live!</a>
 						  	</div>
 						</div>
@@ -292,7 +304,46 @@
 				</a>
 			</div>
 			<div class="col-4">
-				<img class="img-fluid" src="assets/images/mail-black-envelope-symbol.svg" alt="e-mail">
+				<!-- Button trigger modal -->
+				<button id="emailModal" type="button" data-toggle="modal" data-target="#emailModalContent">
+					<img class="img-fluid" src="assets/images/mail-black-envelope-symbol.svg" alt="e-mail">
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="emailModalContent" tabindex="-1" role="dialog" aria-labelledby="#emailModalContentLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
+				        		<h4 class="modal-title" id="emailModalContentLabel">Contact Me</h4>
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          			<span aria-hidden="true">&times;</span>
+				        		</button>
+				      		</div>
+				      		<form id="contactform" method="post">
+				      			<div class="modal-body">
+						  			<div class="form-group">
+										<label for="email">Email address</label>
+									    <input type="email" class="form-control" id="email" name="_replyto" aria-describedby="emailHelp" placeholder="Enter email">
+									    <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else. Promise.</small>
+									</div>
+									<div class="form-group">
+					    				<label for="subject">Subject</label>
+					    				<input class="form-control" type="text">
+					  				</div>
+					  				<div class="form-group">
+					    				<label for="message">Message</label>
+					    				<textarea class="form-control" id="message" name="message" rows="3" placeholder="What do you want to tell me? I don't bite."></textarea>
+					  				</div>
+				      			</div>
+				      			<div class="modal-footer">
+						        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						        	<button type="submit" class="btn btn-primary">Send</button>
+						    	</div>
+						    	<input id="next" type="hidden" name="_next" value="thanks.html" />
+								<input type="text" name="_gotcha" style="display:none" />
+						    </form>
+				    	</div>
+				  	</div>
+				</div>
 			</div>
 		</div>
 	</div>
