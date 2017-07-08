@@ -75,6 +75,18 @@ a:hover {
     background-color: rgba(50, 62, 199, 0.34);
     border-color: #48b19b;
 }
+/* Email Modal */
+#emailModal {
+	border: none;
+	background: 0 0;
+	padding: 0;
+}
+legend, label {
+	font-size: 1.25rem;
+}
+.form-check-label {
+	font-size: 1.0rem;
+}
 /* Sticky Footer */
 html {
 	position: relative;
