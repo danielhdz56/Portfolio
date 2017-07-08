@@ -1,3 +1,6 @@
+//Protects against spambots
+$('#contactform').attr('action', 'h' + 't' + 't' + 'p' + 's' + ':' + '/' + '/' + 'f' + 'o' + 'r' + 'm' + 's' + 'p' + 'r' + 'e' + 'e' + '.' + 'i' + 'o' + '/' + 'd' + 'a' + 'n' + 'i' + 'e' + 'l' + '5' + '6' + 'h' + 'd' + 'z' + '@' + 'g' + 'm' + 'a' + 'i' + 'l' + '.' + 'c' + 'o' + 'm');
+//Pagination
 var handler = function() {
 	//Handles the numbers in Pagination
 	if ($(this).hasClass('items')) {

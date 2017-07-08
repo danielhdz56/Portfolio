@@ -61,11 +61,11 @@
 				          			<span aria-hidden="true">&times;</span>
 				        		</button>
 				      		</div>
-				      		<form action="https://formspree.io/daniel56hdz@gmail.com" method="post">
+				      		<form id="contactform" method="post">
 				      			<div class="modal-body">
 						  			<div class="form-group">
 										<label for="email">Email address</label>
-									    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+									    <input type="email" class="form-control" id="email" name="_replyto" aria-describedby="emailHelp" placeholder="Enter email">
 									    <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else. Promise.</small>
 									</div>
 									<div class="form-group">
@@ -82,6 +82,7 @@
 						        	<button type="submit" class="btn btn-primary">Send</button>
 						    	</div>
 						    	<input type="hidden" name="_next" value="thanks.html" />
+								<input type="text" name="_gotcha" style="display:none" />
 						    </form>
 				    	</div>
 				  	</div>
