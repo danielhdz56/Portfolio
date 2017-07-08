@@ -13,15 +13,19 @@ function CardMargin(id, marginCode, marginNeighborCode) {
 		neighborIdCode.find('p:last').css('margin-bottom', marginNeighborCode);
 	}
 }
+var firstMediaQuery = window.matchMedia('(min-width: 992px)');
+var secondMediaQuery = window.matchMedia('(min-width: 1200px)');
 $('.pages').on('click', '.nav-link', function() {
-	if($(this).closest('.pages').children().attr('id') === "hangman" || "psychic") {
-		var hangman = new CardMargin("hangman", "168px", "216px");
-	}
-	if($(this).closest('.pages').children().attr('id') === "bootstrap" || "responsive") {
-		var bootstrap = new CardMargin("bootstrap", "168px", "192px");
-	}
-	if($(this).closest('.pages').children().attr('id') === "basicPortfolio" || "wireframe") {
-		var basicPortfolio = new CardMargin("basicPortfolio", "144px", "144px");
+	if (firstMediaQuery.matches) {
+		if(($(this).closest('.pages').children().attr('id') === "hangman") || ($(this).closest('.pages').children().attr('id') === "psychic")) {
+			var hangman = new CardMargin("hangman", "168px", "216px");
+		}
+		if(($(this).closest('.pages').children().attr('id') === "bootstrap") || ($(this).closest('.pages').children().attr('id') ===  "responsive")) {
+			var bootstrap = new CardMargin("bootstrap", "168px", "192px");
+		}
+		if(($(this).closest('.pages').children().attr('id') === "basicPortfolio") || ($(this).closest('.pages').children().attr('id') === "wireframe")) {
+			var basicPortfolio = new CardMargin("basicPortfolio", "144px", "144px");
+		}
 	}
 });
 //Pagination
