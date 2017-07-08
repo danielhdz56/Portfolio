@@ -40,19 +40,21 @@
 	#responsiveDescription p:nth-child(6) {
 		margin-bottom: 96px;
 	}
-	#rawCssDescription p:nth-child(6) {
+	#basicPortfolioDescription p:nth-child(6) {
 		margin-bottom: 24px;
+	}
+	#psychicCode p:nth-child(3) {
+		margin-bottom: 48px;
 	}
 }
 @media screen and (min-width: 1200px) {
 	#responsiveDescription p:nth-child(6) {
 		margin-bottom: 72px;
 	}
-	#rawCssDescription p:nth-child(6) {
+	#basicPortfolioDescription p:nth-child(6) {
 		margin-bottom: 0px;
 	}
 }
-rawCssDescription
 .nav-tabs .nav-item.show .nav-link {
 	border-color: rgba(0, 0, 0, 0.22) rgba(0, 0, 0, 0.22) rgba(255, 255, 255, 0);
 }

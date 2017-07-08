@@ -2,6 +2,28 @@
 //Protects against spambots
 $('#contactform').attr('action', 'h' + 't' + 't' + 'p' + 's' + ':' + '/' + '/' + 'f' + 'o' + 'r' + 'm' + 's' + 'p' + 'r' + 'e' + 'e' + '.' + 'i' + 'o' + '/' + 'd' + 'a' + 'n' + 'i' + 'e' + 'l' + '5' + '6' + 'h' + 'd' + 'z' + '@' + 'g' + 'm' + 'a' + 'i' + 'l' + '.' + 'c' + 'o' + 'm');
 $('#next').attr('value', window.location.pathname);
+//Cards
+function CardMargin(id, marginCode, marginNeighborCode) {
+	var idDescription = $('#' + id + 'Description');
+	var idCode = $('#' + id + 'Code');
+	var neighborIdDescription = $('#' + idDescription.closest('.pages').siblings('.pages').not('.collapse').first().children().attr('id') + 'Description');
+	var neighborIdCode = $('#' + idCode.closest('.pages').siblings('.pages').not('.collapse').first().children().attr('id') + 'Code');
+	if (idDescription.hasClass('active') && neighborIdDescription.hasClass('active')) {
+		idCode.find('p:last').css('margin-bottom', marginCode);
+		neighborIdCode.find('p:last').css('margin-bottom', marginNeighborCode);
+	}
+}
+$('.pages').on('click', '.nav-link', function() {
+	if($(this).closest('.pages').children().attr('id') === "hangman" || "psychic") {
+		var hangman = new CardMargin("hangman", "168px", "216px");
+	}
+	if($(this).closest('.pages').children().attr('id') === "bootstrap" || "responsive") {
+		var bootstrap = new CardMargin("bootstrap", "168px", "192px");
+	}
+	if($(this).closest('.pages').children().attr('id') === "basicPortfolio" || "wireframe") {
+		var basicPortfolio = new CardMargin("basicPortfolio", "144px", "144px");
+	}
+});
 //Pagination
 var handler = function() {
 	//Handles the numbers in Pagination
