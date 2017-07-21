@@ -127,5 +127,8 @@ Project.prototype.makeCard = function() {
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
 	$(cardBlockCode).append(imgPaneCode, cardTitle, techUsedText, resourcesText, repoLink);
 }
-arrProjects[0].makeCard();
-
+for (i=0; i<arrProjects.length; i++) {
+	if(i===0) {
+		arrProjects[i].makeCard();
+	}
+}
