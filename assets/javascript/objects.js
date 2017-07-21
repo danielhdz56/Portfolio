@@ -57,26 +57,122 @@ var wireframe = new Project('Wireframe', 'assets/images/magic-wand.svg', 'Bootca
 	'Finishing the assignment in a couple of hours. This seemed so impressive at the time. Trust me, I\'m way faster now.',
 	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/magic-trick.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/HW-Wireframe.git');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Dynamically add cards to html
+console.log(arrProjects)
+Project.prototype.makeCard = function() {
+	var column = $('<div>');
+	column.addClass('col-12');
+	$('#mainRow').append(column);
+	var projectName = $('<div>');
+	projectName.attr('id', this.name);
+	projectName.addClass('card text-center h-100');
+	$(column).append(projectName);
+	//Card Header
+	var cardHeader = $('<div>');
+	cardHeader.addClass('card-header');
+	$(projectName).append(cardHeader);
+	var navTabs = $('<ul>');
+	navTabs.addClass('nav nav-tabs nav-fill card-header-tabs');
+	navTabs.attr('role', 'tablist');
+	$(cardHeader).append(navTabs);
+	var navItemDescription = $('<li>');
+	navItemDescription.addClass('nav-item');
+	$(navTabs).append(navItemDescription);
+	var linkDescription = $('<a>');
+	linkDescription.addClass('nav-link active');
+	linkDescription.attr('data-toggle', 'tab');
+	linkDescription.attr('href', '#' + this.name + 'Description');
+	linkDescription.attr('role', 'tab');
+	$(linkDescription).append('Project');
+	$(navItemDescription).append(linkDescription);
+	var navItemCode = $('<li>');
+	navItemCode.addClass('nav-item');
+	$(navTabs).append(navItemCode);
+	var linkCode = $('<a>');
+	linkCode.addClass('nav-link');
+	linkCode.attr('data-toggle', 'tab');
+	linkCode.attr('href', '#' + this.name + 'Code');
+	linkCode.attr('role', 'tab');
+	$(linkCode).append('Github');
+	$(navItemCode).append(linkCode);
+	//Tab Content
+	var tabContent = $('<div>');
+	tabContent.addClass('tab-content');
+	$(projectName).append(tabContent);
+	//Tab Pane Description
+	var tabPaneDescription = $('<div>');
+	tabPaneDescription.addClass('tab-pane active');
+	tabPaneDescription.attr('id', this.name + 'Description');
+	tabPaneDescription.attr('role', 'tabpanel');
+	$(tabContent).append(tabPaneDescription);
+	var imgPaneDescription = $('<img>');
+	imgPaneDescription.addClass('card-img-top mx-auto mt-4');
+	imgPaneDescription.attr('src', this.projectImage);
+	imgPaneDescription.attr('alt', 'Card image cap');
+	imgPaneDescription.attr('width', '200px');
+	$(tabPaneDescription).append(imgPaneDescription);
+	var cardBlockDescription = $('<div>');
+	cardBlockDescription.addClass('card-block');
+	$(tabPaneDescription).append(cardBlockDescription);
+	var cardTitle = $('<h4>');
+	cardTitle.addClass('card-title');
+	$(cardBlockDescription).append(cardTitle);
+	var typeText = $('<p>');
+	typeText.addClass('card-text');
+	$(typeText).append(this.type);
+	$(cardBlockDescription).append(typeText);
+	var dateText = $('<p>');
+	dateText.addClass('card-text');
+	$(dateText).append(this.date);
+	$(cardBlockDescription).append(dateText);
+	var descriptionText = $('<p>');
+	descriptionText.addClass('card-text');
+	$(descriptionText).append(this.description);
+	$(cardBlockDescription).append(descriptionText);
+	var takeawaysText = $('<p>');
+	takeawaysText.addClass('card-text');
+	$(takeawaysText).append(this.takeaways);
+	$(cardBlockDescription).append(takeawaysText);
+	var exceededText = $('<p>');
+	exceededText.addClass('card-text');
+	$(exceededText).append(this.exceeded);
+	$(cardBlockDescription).append(exceededText);
+	var liveLink = $('<a>');
+	liveLink.attr('href', this.live);
+	liveLink.attr('target', '_blank');
+	liveLink.addClass('btn btn-primary');
+	$(liveLink).append('Go Live!');
+	$(cardBlockDescription).append(liveLink);
+	//Tab Pane
+	var tabPaneCode = $('<div>');
+	tabPaneCode.addClass('tab-pane');
+	tabPaneCode.attr('id', this.name + 'Code');
+	tabPaneCode.attr('role', 'tabpanel');
+	$(tabContent).append(tabPaneCode);
+	var imgPaneCode = $('<img>');
+	imgPaneCode.addClass('card-img-top mx-auto mt-4');
+	imgPaneCode.attr('src', this.githubImage);
+	imgPaneCode.attr('alt', 'Card image cap');
+	imgPaneCode.attr('width', '200px');
+	$(tabPaneCode).append(imgPaneCode);
+	var cardBlockCode = $('<div>');
+	cardBlockCode.addClass('card-block');
+	$(tabPaneCode).append(cardBlockCode);
+	$(cardBlockCode).append(cardTitle);
+	var techUsedText = $('<p>');
+	techUsedText.addClass('card-text');
+	$(techUsedText).append(this.techUsed);
+	$(cardBlockCode).append(techUsedText);
+	var resourcesText = $('<p>');
+	resourcesText.addClass('card-text');
+	$(resourcesText).append(this.resources);
+	$(cardBlockCode).append(resourcesText);
+	var repoLink = $('<a>');
+	repoLink.attr('href', this.repo);
+	repoLink.attr('target', '_blank');
+	repoLink.addClass('btn btn-primary');
+	$(repoLink).append('View the Code!');
+	$(cardBlockCode).append(repoLink);
+}
+arrProjects[0].makeCard();
 
