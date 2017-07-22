@@ -127,8 +127,55 @@ Project.prototype.makeCard = function() {
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
 	$(cardBlockCode).append(imgPaneCode, cardTitle, techUsedText, resourcesText, repoLink);
 }
-for (i=0; i<arrProjects.length; i++) {
-	if(i===0) {
-		arrProjects[i].makeCard();
+function pagination(pages) {
+	var column = $('<div>');
+	column.addClass('col-12 mt-5');
+	$('#mainRow').append(column);
+	var nav = $('<nav>');
+	$(column).append(nav);
+	var uList = $('<ul>');
+	uList.addClass('pagination pagination-lg justify-content-end');
+	$(nav).append(uList);
+	var previousListItem = $('<li>');
+	previousListItem.attr('previous');
+	previousListItem.addClass('page-item disabled');
+	$(uList).append(previousListItem);
+	var previousListLink = $('<a>');
+	previousListLink.addClass('page-link').attr('href', '#').attr('tabindex', '-1').append('Prev.');
+	$(previousListItem).append(previousListLink);
+	for (i = 1; i <= pages; i++){
+		var listItem = $('<li>');
+		listItem.attr('id', i).addClass('page-item items');
+		var listLink = $('<a>');
+		listLink.addClass('page-link').attr('href', '#').append(i);
+		if(i === 1){
+			var span = $('<span class="sr-only">(current)</span>');
+			listItem.addClass('active').append(span);
+		}
+		$(listItem).append(listLink)
+		$(uList).append(listItem);
+	}
+	var nextListItem = $('<li>');
+	nextListItem.attr('next');
+	nextListItem.addClass('page-item');
+	$(uList).append(nextListItem);
+	var nextListLink = $('<a>');
+	nextListLink.addClass('page-link').attr('href', '#').append('Next');
+	$(nextListItem).append(nextListLink);
+}
+for (j=0; j<arrProjects.length; j++) {
+	console.log(j);
+	if(j===0) {
+		arrProjects[j].makeCard();
+		numberOfPages = (arrProjects.length-1)/2;
+		pagination(numberOfPages);		
+	}
+	else {
+		console.log(j);
+		console.log(arrProjects[j])
+		arrProjects[j].makeCard();	
 	}
 }
+
+
+
