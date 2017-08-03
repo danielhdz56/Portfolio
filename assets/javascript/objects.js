@@ -243,7 +243,7 @@ $(document).on('click', '.page-link', function(){
 		//Handles the pages when pagination is clicked. 
 		for(h=1; h<arrProjects.length; h++){
 			if(arrProjects[h].page === Number($(this).parent().parent().find('.active').children().attr('id'))){
-				arrProjects[h].makeCard('switchCard');
+				arrProjects[h].makeCard('switchCard', true);
 			}
 		}
 		//Handles the situation in which the previous pagination makes the id 2 have an active class
