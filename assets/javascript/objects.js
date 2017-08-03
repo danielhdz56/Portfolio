@@ -15,6 +15,7 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
+
 var trivia = new Project('Trivia-Game', 'assets/images/questions.svg', 'Bootcamp Homework', 'Jul 11, 2017 - Jul 17, 2017',
 	'Interactive Trivia Game that dynamically updates the page using the Flickr and OpenTDB API\'s.',
 	'Used responses from players to retrieve specific questions from the API based on the difficulty level, number of questions, and category that the player chose.',
@@ -125,15 +126,15 @@ Project.prototype.makeCard = function(group, split) {
 	var cardTitle = $('<h4>');
 	cardTitle.addClass('card-title').append(this.name);
 	var typeText = $('<p>');
-	typeText.addClass('card-text').append(this.type);
+	typeText.addClass('card-text').append('<strong>Type: </strong>' + this.type);
 	var dateText = $('<p>');
-	dateText.addClass('card-text').append(this.date);
+	dateText.addClass('card-text').append('<strong>Date: </strong>' + this.date);
 	var descriptionText = $('<p>');
-	descriptionText.addClass('card-text').append(this.description);
+	descriptionText.addClass('card-text').append('<strong>Description: </strong>' + this.description);
 	var takeawaysText = $('<p>');
-	takeawaysText.addClass('card-text').append(this.takeaways);
+	takeawaysText.addClass('card-text').append('<strong>Takeaways: </strong>' + this.takeaways);
 	var exceededText = $('<p>');
-	exceededText.addClass('card-text').append(this.exceeded);
+	exceededText.addClass('card-text').append('<strong>Exceeded: </strong>' + this.exceeded);
 	var liveLink = $('<a>');
 	liveLink.attr('href', this.live).attr('target', '_blank').addClass('btn btn-primary').append('Go Live!');
 	$(cardBlockDescription).append(cardTitle, typeText, dateText, descriptionText, takeawaysText, exceededText, liveLink);
@@ -149,9 +150,9 @@ Project.prototype.makeCard = function(group, split) {
 	var cardCodeTitle = $('<h4>');
 	cardCodeTitle.addClass('card-title').append(this.name);
 	var techUsedText = $('<p>');
-	techUsedText.addClass('card-text').append(this.techUsed);
+	techUsedText.addClass('card-text').append('<strong>Tech Used: </strong>' + this.techUsed);
 	var resourcesText = $('<p>');
-	resourcesText.addClass('card-text').append(this.resources);
+	resourcesText.addClass('card-text').append('<strong>Resources: </strong>' + this.resources);
 	var repoLink = $('<a>');
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
 	$(cardBlockCode).append(cardCodeTitle, techUsedText, resourcesText, repoLink);
