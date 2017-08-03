@@ -1,5 +1,5 @@
 var arrProjects = [];
-function Project(name, projectImage, type, date, description, takeaways, exceeded, live, githubImage, techUsed, resources, repo) {
+function Project(name, projectImage, type, date, description, takeaways, exceeded, live, githubImage, techUsed, resources, repo, page) {
 	this.name = name;
 	this.projectImage = projectImage;
 	this.type = type;
@@ -15,31 +15,31 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
-var pokemon = new Project('Pokemon', 'assets/images/insignia.svg', 'Bootcamp Homework', 'Jun 27, 2017 - Jul 10, 2017',
+var pokemon = new Project('Pokemon RPG', 'assets/images/insignia.svg', 'Bootcamp Homework', 'Jun 27, 2017 - Jul 10, 2017',
 	'Interactive game that dynamically updates the HTML page using the jQuery library.',
 	'Dynamically updated HTML page by looping through an array that contained objects. Applied the remove and empty methods to manipulate the DOM on reset.',
 	'Adding music, user-bar/computer-bar, hover effects on player, and what I consider a killer UI.',
 	'https://danielhdz56.github.io/week-4-game/', 'assets/images/map.svg', 'HTML5, CSS3, JS, JQuery, Bootstrap 4, and Git.',
 	'Stack Overflow, Google, Bulbapedia, khinsider, Roundicons-freebies, jQuery Documentation, MDN, composition book, and pens.', 'https://github.com/danielhdz56/week-4-game.git');
-var hangman = new Project('Hangman', 'assets/images/world.svg', 'Bootcamp Homework', 'Jun 21, 2017 - Jun 27, 2017',
+var hangman = new Project('Hangman Game', 'assets/images/world.svg', 'Bootcamp Homework', 'Jun 21, 2017 - Jun 27, 2017',
 	'Interactive game that dynamically updates the HTML page using JavaScript code.',
 	'Manipulated array in order to match, and replace data. Used vanilla Javascript to make dynamic transitions.',
 	'Making sure to account for countries that contained spaces, punctuation, prepositions, and conjunctions. Dynamically adding elements on incorrect guesses.',
 	'https://danielhdz56.github.io/Hangman-Game/', 'assets/images/magnifyingGlass.svg', 'HTML5, CSS3, JS, Bootstrap 3, and Git.',
 	'Stack Overflow, Google, MDN, composition book, and pens.', 'https://github.com/danielhdz56/Hangman-Game.git');
-var psychic = new Project('Psychic', 'assets/images/magic-wand.svg', 'Bootcamp Homework', 'Jun 20, 2017 - Jun 21, 2017',
+var psychic = new Project('Psychic Game', 'assets/images/magic-wand.svg', 'Bootcamp Homework', 'Jun 20, 2017 - Jun 21, 2017',
 	'Interactive game that dynamically updates the HTML page using JavaScript code.',
 	'Created Random letters using the JavaScript Math object. Manipulated the DOM using the getElementByID Method.',
 	'Doing both homeworks (this one and the hangman). Finishing the psychic game in two days (before covering the topics in class). Google Fu!',
 	'https://danielhdz56.github.io/Psychic-Game/index.html', 'assets/images/magic-trick.svg', 'HTML5, JS, and Git.',
 	'Stack Overflow, Google, and MDN', 'https://github.com/danielhdz56/Psychic-Game.git');
-var bootstrap = new Project('Bootstrap', 'assets/images/bootstrap.svg', 'Bootcamp Homework', 'Jun 16, 2017 - Jun 20, 2017',
+var bootstrap = new Project('Bootstrap Portfolio', 'assets/images/bootstrap.svg', 'Bootcamp Homework', 'Jun 16, 2017 - Jun 20, 2017',
 	'Recreated my first Portfolio using the Bootstrap CSS Framework.',
 	'How Bootstrap relies on the concept of a Grid to order and make responsive content.',
 	'Adding a sticky footer. Having to redo the assignment because I finsihed it before we were taught how to do it in Bootstrap 4m then being told we have to use Bootstrap 3. Life. LOL.',
 	'https://danielhdz56.github.io/Bootstrap-Portfolio/', 'assets/images/bootstrap-code.svg', 'HTML5, CSS3, Bootstrap 4, Bootstrap 3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/Bootstrap-Portfolio.git');
-var responsive = new Project('Responsive', 'assets/images/smartphone.svg', 'Bootcamp Homework', 'Jun 16, 2017 - Jun 20, 2017',
+var responsive = new Project('Responsive Portfolio', 'assets/images/smartphone.svg', 'Bootcamp Homework', 'Jun 16, 2017 - Jun 20, 2017',
 	'Made first portfolio responsive by using Media Queries',
 	'Learned that issues will arise if there is no meta tag that handles the viewport.',
 	'Not Applicable',
@@ -58,10 +58,25 @@ var wireframe = new Project('Wireframe', 'assets/images/magic-wand.svg', 'Bootca
 	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/magic-trick.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/HW-Wireframe.git');
 //Dynamically add cards to html
-console.log(arrProjects)
-Project.prototype.makeCard = function() {
+var arrSwitchCards = [];
+for (j=1; j<arrProjects.length; j++) {
+	arrSwitchCards.push(arrProjects[j])
+}
+var k,l,temparray,chunk = 2;
+var counter = 1;
+for (k=0,l=arrSwitchCards.length; k<l; k+=chunk) {
+    temparray = arrSwitchCards.slice(k,k+chunk);
+    temparray[0].page = counter;
+    temparray[1].page = counter;
+    counter++;
+}
+
+Project.prototype.makeCard = function(group, split) {
 	var column = $('<div>');
-	column.addClass('col-12');
+	if(split){
+		column.addClass('col-lg-6')
+	}
+	column.addClass('col-12 ' + group).attr('data-page', this.page);
 	$('#mainRow').append(column);
 	var projectName = $('<div>');
 	projectName.attr('id', this.name).addClass('card text-center h-100');
@@ -96,7 +111,7 @@ Project.prototype.makeCard = function() {
 	cardBlockDescription.addClass('card-block');
 	$(tabPaneDescription).append(imgPaneDescription, cardBlockDescription);
 	var cardTitle = $('<h4>');
-	cardTitle.addClass('card-title');
+	cardTitle.addClass('card-title').append(this.name);
 	var typeText = $('<p>');
 	typeText.addClass('card-text').append(this.type);
 	var dateText = $('<p>');
@@ -118,14 +133,16 @@ Project.prototype.makeCard = function() {
 	imgPaneCode.addClass('card-img-top mx-auto mt-4').attr('src', this.githubImage).attr('alt', 'Card image cap').attr('width', '200px');
 	var cardBlockCode = $('<div>');
 	cardBlockCode.addClass('card-block');
-	$(tabPaneCode).append(cardBlockCode);
+	$(tabPaneCode).append(imgPaneCode, cardBlockCode);
+	var cardCodeTitle = $('<h4>');
+	cardCodeTitle.addClass('card-title').append(this.name);
 	var techUsedText = $('<p>');
 	techUsedText.addClass('card-text').append(this.techUsed);
 	var resourcesText = $('<p>');
 	resourcesText.addClass('card-text').append(this.resources);
 	var repoLink = $('<a>');
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
-	$(cardBlockCode).append(imgPaneCode, cardTitle, techUsedText, resourcesText, repoLink);
+	$(cardBlockCode).append(cardCodeTitle, techUsedText, resourcesText, repoLink);
 }
 function pagination(pages) {
 	var column = $('<div>');
@@ -140,17 +157,16 @@ function pagination(pages) {
 	previousListItem.attr('previous');
 	previousListItem.addClass('page-item disabled');
 	$(uList).append(previousListItem);
-	var previousListLink = $('<a>');
-	previousListLink.addClass('page-link').attr('href', '#').attr('tabindex', '-1').append('Prev.');
+	var previousListLink = $('<button>');
+	previousListLink.addClass('page-link').attr('id', 'prev').attr('tabindex', '-1').append('Prev.');
 	$(previousListItem).append(previousListLink);
 	for (i = 1; i <= pages; i++){
 		var listItem = $('<li>');
-		listItem.attr('id', i).addClass('page-item items');
-		var listLink = $('<a>');
-		listLink.addClass('page-link').attr('href', '#').append(i);
+		listItem.addClass('page-item items');
+		var listLink = $('<button>');
+		listLink.addClass('page-link').attr('id', i).append(i);
 		if(i === 1){
-			var span = $('<span class="sr-only">(current)</span>');
-			listItem.addClass('active').append(span);
+			listItem.addClass('active');
 		}
 		$(listItem).append(listLink)
 		$(uList).append(listItem);
@@ -159,23 +175,92 @@ function pagination(pages) {
 	nextListItem.attr('next');
 	nextListItem.addClass('page-item');
 	$(uList).append(nextListItem);
-	var nextListLink = $('<a>');
-	nextListLink.addClass('page-link').attr('href', '#').append('Next');
+	var nextListLink = $('<button>');
+	nextListLink.addClass('page-link').attr('id', 'next').append('Next');
 	$(nextListItem).append(nextListLink);
 }
-for (j=0; j<arrProjects.length; j++) {
-	console.log(j);
-	if(j===0) {
-		arrProjects[j].makeCard();
+for (f=0; f<arrProjects.length; f++) {
+	if(f===0) {
+		arrProjects[f].makeCard('displayCard', false);
 		numberOfPages = (arrProjects.length-1)/2;
 		pagination(numberOfPages);		
 	}
 	else {
-		console.log(j);
-		console.log(arrProjects[j])
-		arrProjects[j].makeCard();	
+		if(arrProjects[f].page === 1){
+			arrProjects[f].makeCard('switchCard', true);
+		}
 	}
 }
+$(document).on('click', '.page-link', function(){
+	$('.switchCard').remove()
 
 
+	if ($(this).parent().hasClass('items')){
+		for(h=1; h<arrProjects.length; h++){
+			if(arrProjects[h].page === Number($(this).attr('id'))){
+				arrProjects[h].makeCard('switchCard', true);
+			}
+		}
+		if (!$(this).parent().hasClass('active')) {
+			$(this).parent().parent().find('.active').removeClass('active');
+			$(this).parent().addClass('active');
+		}
+		if ($(this).attr('id') !== '1') {
+			$('#prev').parent().removeClass('disabled');
+		}
+		else {
+			$('#prev').parent().addClass('disabled');
+		}
+		if ($(this).attr('id') !== '3') {
+			$('#next').parent().removeClass('disabled');
+		}
+		else {
+			$('#next').parent().addClass('disabled');
+		}
+	}
+	else if ($(this).attr('id') === 'next') {
+		$(this).parent().parent().find('.active').next().addClass('active');
+		$(this).parent().parent().find('.active').eq(0).removeClass('active');
+		//Handles the pages when pagination is clicked. 
+		for(h=1; h<arrProjects.length; h++){
+			if(arrProjects[h].page === Number($(this).parent().parent().find('.active').children().attr('id'))){
+				arrProjects[h].makeCard('switchCard', true);
+			}
+		}
+		//Handles the situation in which the next pagination makes the id 2 have an active class
+		if ($(this).parent().parent().find('.active').children().attr('id') === '2') {
+			$('#prev').parent().removeClass('disabled');
+		}
+		//Handles the situation in which the next pagination makes the last id have an active class
+		else if (Number($(this).parent().parent().find('.active').children().attr('id')) === counter-1) {
+			$(this).parent().addClass('disabled');
+		}
+	}
+	//Handles the previous in pagination
+	else if ($(this).attr('id') === 'prev') {
+		$(this).parent().parent().find('.active').prev().addClass('active');
+		$(this).parent().parent().find('.active').eq(1).removeClass('active');
+		//Handles the pages when pagination is clicked. 
+		for(h=1; h<arrProjects.length; h++){
+			if(arrProjects[h].page === Number($(this).parent().parent().find('.active').children().attr('id'))){
+				arrProjects[h].makeCard('switchCard');
+			}
+		}
+		//Handles the situation in which the previous pagination makes the id 2 have an active class
+		if (Number($(this).parent().parent().find('.active').children().attr('id'))===counter-2) {
+			$('#next').parent().removeClass('disabled');
+		}
+		//Handles the situation in which the previous pagination makes the id 1 have an active class
+		else if ($(this).parent().parent().find('.active').children().attr('id') === '1') {
+			$(this).parent().addClass('disabled');
+		}
+	}
+});
+
+
+		
+		
+		
+		
+		
 
