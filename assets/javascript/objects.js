@@ -182,7 +182,7 @@ function pagination(pages) {
 	var nav = $('<nav>');
 	$(column).append(nav);
 	var uList = $('<ul>');
-	uList.addClass('pagination pagination-lg justify-content-end');
+	uList.addClass('pagination pagination-md justify-content-end');
 	$(nav).append(uList);
 	var previousListItem = $('<li>');
 	previousListItem.attr('previous');
