@@ -15,12 +15,12 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
-// var rps = new Project('RPS-Game', 'assets/images/scissors.svg', 'Bootcamp Homework', 'Jul 26, 2017 - Jul 31, 2017',
-// 	'Rock Paper Scissors Game that incorporates Firebase to host player data. The app retrieves choices made by the player to calculate the outcome.',
-// 	'Understand the use of keys to host messages sent to firebase.',
-// 	'Used session storage to hold information of players so you only query what is necessary from firebase',
-// 	'https://danielhdz56.github.io/RPS-Multiplayer/', 'assets/images/paper-plane.svg', 'HTML5, CSS3, JS, JQuery, Firebase, Bootstrap 3, and Git.',
-// 	'Stack Overflow, Google, jQuery Documentation, MDN, Firebase Documentation, composition book, and pens.', 'https://github.com/danielhdz56/RPS-Multiplayer.git');
+var rps = new Project('RPS-Game', 'assets/images/scissors.svg', 'Bootcamp Homework', 'Jul 26, 2017 - Jul 31, 2017',
+	'Rock Paper Scissors Game that incorporates Firebase to host player data. The app retrieves choices made by the player to calculate the outcome.',
+	'Understand the use of keys to host messages sent to firebase.',
+	'Used session storage to hold information of players so you only query what is necessary from firebase',
+	'https://danielhdz56.github.io/RPS-Multiplayer/', 'assets/images/paper-plane.svg', 'HTML5, CSS3, JS, JQuery, Firebase, Bootstrap 3, and Git.',
+	'Stack Overflow, Google, jQuery Documentation, MDN, Firebase Documentation, composition book, and pens.', 'https://github.com/danielhdz56/RPS-Multiplayer.git');
 var train = new Project('Train-Schedule', 'assets/images/train.svg', 'Bootcamp Homework', 'Jul 23, 2017 - Jul 31, 2017',
 	'Train Schedule Application that incorporates Firebase to host arrival and departure data. The app retrieves and manipulates this information and renders it on the page.',
 	'Able to communicate with Firebase to read and write data from the client side.',
