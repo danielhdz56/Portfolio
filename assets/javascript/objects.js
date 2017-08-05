@@ -15,12 +15,23 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
-
+// var rps = new Project('RPS-Game', 'assets/images/scissors.svg', 'Bootcamp Homework', 'Jul 26, 2017 - Jul 31, 2017',
+// 	'Rock Paper Scissors Game that incorporates Firebase to host player data. The app retrieves choices made by the player to calculate the outcome.',
+// 	'Understand the use of keys to host messages sent to firebase.',
+// 	'Used session storage to hold information of players so you only query what is necessary from firebase',
+// 	'https://danielhdz56.github.io/RPS-Multiplayer/', 'assets/images/paper-plane.svg', 'HTML5, CSS3, JS, JQuery, Firebase, Bootstrap 3, and Git.',
+// 	'Stack Overflow, Google, jQuery Documentation, MDN, Firebase Documentation, composition book, and pens.', 'https://github.com/danielhdz56/RPS-Multiplayer.git');
+var train = new Project('Train-Schedule', 'assets/images/train.svg', 'Bootcamp Homework', 'Jul 23, 2017 - Jul 31, 2017',
+	'Train Schedule Application that incorporates Firebase to host arrival and departure data. The app retrieves and manipulates this information and renders it on the page.',
+	'Able to communicate with Firebase to read and write data from the client side.',
+	'Used a timer to update the "Minutes to Arrival" and "Next Train Time" every minute. Added update and remove buttons to every train, giving clients the ability to edit the row\'s elements.',
+	'https://danielhdz56.github.io/TrainSchedule/', 'assets/images/trainMap.svg', 'HTML5, CSS3, JS, JQuery, Firebase, Bootstrap 3, and Git.',
+	'Stack Overflow, Google, jQuery Documentation, MDN, Firebase Documentation, composition book, and pens.', 'https://github.com/danielhdz56/TrainSchedule.git');
 var trivia = new Project('Trivia-Game', 'assets/images/questions.svg', 'Bootcamp Homework', 'Jul 11, 2017 - Jul 17, 2017',
 	'Interactive Trivia Game that dynamically updates the page using the Flickr and OpenTDB API\'s.',
 	'Used responses from players to retrieve specific questions from the API based on the difficulty level, number of questions, and category that the player chose.',
 	'Taught myself how to use AJAX and implemented it into my app. Also used the correct answer to render an Image from Flickr using Flickr\'s most popular algorithm.',
-	'https://danielhdz56.github.io/TriviaGame/', 'assets/images/faq.svg', 'HTML5, CSS3, JS, JQuery, AJAX, API\'s Bootstrap 3, and Git.',
+	'https://danielhdz56.github.io/TriviaGame/', 'assets/images/faq.svg', 'HTML5, CSS3, JS, JQuery, AJAX, API\'s, Bootstrap 3, and Git.',
 	'Stack Overflow, Google, jQuery Documentation, MDN, OpenTDB, Flickr, composition book, and pens.', 'https://github.com/danielhdz56/TriviaGame.git');
 var concert = new Project('Mini-Concert-App', 'assets/images/rock-and-roll.svg', 'Personal Challenge', 'Jul 18, 2017',
 	'Mini Concert APP that retrieves upcoming concert information using the BandsInTown API, and takes you to an external website to buy tickets if they\'re available.',
@@ -64,14 +75,15 @@ var basicPortfolio = new Project('Basic-Portfolio', 'assets/images/css-3.svg', '
 	'Doing both the basic Portfolio and Wireframe for Homework',
 	'https://danielhdz56.github.io/Basic-Portfolio/', 'assets/images/html-5.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/Basic-Portfolio.git');
-var wireframe = new Project('Wireframe', 'assets/images/magic-wand.svg', 'Bootcamp Homework', 'Jun 7, 2017',
+var wireframe = new Project('Wireframe', 'assets/images/mill.svg', 'Bootcamp Homework', 'Jun 7, 2017',
 	'Made a Wireframe given an image.',
 	'The relationship between Float and Clear, and the difference between margin and padding.',
 	'Finishing the assignment in a couple of hours. This seemed so impressive at the time. Trust me, I\'m way faster now.',
-	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/magic-trick.svg', 'HTML5, CSS3, and Git.',
+	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/engineer.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/HW-Wireframe.git');
 //Dynamically add cards to html
 var arrSwitchCards = [];
+var shouldSplit = true;
 for (j=1; j<arrProjects.length; j++) {
 	arrSwitchCards.push(arrProjects[j])
 }
@@ -79,15 +91,21 @@ var k,l,temparray,chunk = 2;
 var counter = 1;
 for (k=0,l=arrSwitchCards.length; k<l; k+=chunk) {
     temparray = arrSwitchCards.slice(k,k+chunk);
-    temparray[0].page = counter;
-    temparray[1].page = counter;
+    if(l-k>=chunk){
+		temparray[0].page = counter;
+	    temparray[1].page = counter;
+    }
+    else{
+    	temparray[0].page = counter;
+    	shouldSplit = false;
+    }
     counter++;
 }
 
 Project.prototype.makeCard = function(group, split) {
 	var column = $('<div>');
 	if(split){
-		column.addClass('col-lg-6')
+		column.addClass('col-lg-6');
 	}
 	column.addClass('col-12 ' + group).attr('data-page', this.page);
 	$('#mainRow').append(column);
@@ -195,7 +213,7 @@ function pagination(pages) {
 for (f=0; f<arrProjects.length; f++) {
 	if(f===0) {
 		arrProjects[f].makeCard('displayCard', false);
-		numberOfPages = (arrProjects.length-1)/2;
+		numberOfPages = Math.ceil((arrProjects.length-1)/chunk);
 		pagination(numberOfPages);		
 	}
 	else {
@@ -206,12 +224,15 @@ for (f=0; f<arrProjects.length; f++) {
 }
 $(document).on('click', '.page-link', function(){
 	$('.switchCard').remove()
-
-
 	if ($(this).parent().hasClass('items')){
 		for(h=1; h<arrProjects.length; h++){
 			if(arrProjects[h].page === Number($(this).attr('id'))){
-				arrProjects[h].makeCard('switchCard', true);
+				if(arrProjects[h].page === counter-1 && !shouldSplit){
+					arrProjects[h].makeCard('switchCard', false);
+				}
+				else {
+					arrProjects[h].makeCard('switchCard', true);
+				}
 			}
 		}
 		if (!$(this).parent().hasClass('active')) {
@@ -224,7 +245,7 @@ $(document).on('click', '.page-link', function(){
 		else {
 			$('#prev').parent().addClass('disabled');
 		}
-		if ($(this).attr('id') !== '3') {
+		if (Number($(this).attr('id')) !== numberOfPages) {
 			$('#next').parent().removeClass('disabled');
 		}
 		else {
