@@ -81,26 +81,6 @@ var wireframe = new Project('Wireframe', 'assets/images/mill.svg', 'Bootcamp Hom
 	'Finishing the assignment in a couple of hours. This seemed so impressive at the time. Trust me, I\'m way faster now.',
 	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/engineer.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/HW-Wireframe.git');
-//Dynamically add cards to html
-var arrSwitchCards = [];
-var shouldSplit = true;
-for (j=1; j<arrProjects.length; j++) {
-	arrSwitchCards.push(arrProjects[j])
-}
-var k,l,temparray,chunk = 2;
-var counter = 1;
-for (k=0,l=arrSwitchCards.length; k<l; k+=chunk) {
-    temparray = arrSwitchCards.slice(k,k+chunk);
-    if(l-k>=chunk){
-		temparray[0].page = counter;
-	    temparray[1].page = counter;
-    }
-    else{
-    	temparray[0].page = counter;
-    	shouldSplit = false;
-    }
-    counter++;
-}
 
 Project.prototype.makeCard = function(group, split) {
 	var column = $('<div>');
@@ -175,126 +155,16 @@ Project.prototype.makeCard = function(group, split) {
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
 	$(cardBlockCode).append(cardCodeTitle, techUsedText, resourcesText, repoLink);
 }
-function pagination(pages) {
-	var column = $('<div>');
-	column.addClass('col-12 mt-5');
-	$('#mainRow').append(column);
-	var nav = $('<nav>');
-	$(column).append(nav);
-	var uList = $('<ul>');
-	uList.addClass('pagination pagination-md justify-content-end');
-	$(nav).append(uList);
-	var previousListItem = $('<li>');
-	previousListItem.attr('previous');
-	previousListItem.addClass('page-item disabled');
-	$(uList).append(previousListItem);
-	var previousListLink = $('<button>');
-	previousListLink.addClass('page-link').attr('id', 'prev').attr('tabindex', '-1').append('Prev.');
-	$(previousListItem).append(previousListLink);
-	for (i = 1; i <= pages; i++){
-		var listItem = $('<li>');
-		listItem.addClass('page-item items');
-		var listLink = $('<button>');
-		listLink.addClass('page-link').attr('id', i).append(i);
-		if(i === 1){
-			listItem.addClass('active');
-		}
-		$(listItem).append(listLink)
-		$(uList).append(listItem);
-	}
-	var nextListItem = $('<li>');
-	nextListItem.attr('next');
-	nextListItem.addClass('page-item');
-	$(uList).append(nextListItem);
-	var nextListLink = $('<button>');
-	nextListLink.addClass('page-link').attr('id', 'next').append('Next');
-	$(nextListItem).append(nextListLink);
-}
 for (f=0; f<arrProjects.length; f++) {
-	if(f===0) {
-		arrProjects[f].makeCard('displayCard', false);
-		numberOfPages = Math.ceil((arrProjects.length-1)/chunk);
-		pagination(numberOfPages);		
-	}
-	else {
-		if(arrProjects[f].page === 1){
+	if(arrProjects.length%2===1){
+		if(f===0){
+			arrProjects[f].makeCard('displayCard', false);
+		}
+		else{
 			arrProjects[f].makeCard('switchCard', true);
 		}
 	}
+	else {
+		arrProjects[f].makeCard('switchCard', true);
+	}
 }
-$(document).on('click', '.page-link', function(){
-	$('.switchCard').remove()
-	if ($(this).parent().hasClass('items')){
-		for(h=1; h<arrProjects.length; h++){
-			if(arrProjects[h].page === Number($(this).attr('id'))){
-				if(arrProjects[h].page === counter-1 && !shouldSplit){
-					arrProjects[h].makeCard('switchCard', false);
-				}
-				else {
-					arrProjects[h].makeCard('switchCard', true);
-				}
-			}
-		}
-		if (!$(this).parent().hasClass('active')) {
-			$(this).parent().parent().find('.active').removeClass('active');
-			$(this).parent().addClass('active');
-		}
-		if ($(this).attr('id') !== '1') {
-			$('#prev').parent().removeClass('disabled');
-		}
-		else {
-			$('#prev').parent().addClass('disabled');
-		}
-		if (Number($(this).attr('id')) !== numberOfPages) {
-			$('#next').parent().removeClass('disabled');
-		}
-		else {
-			$('#next').parent().addClass('disabled');
-		}
-	}
-	else if ($(this).attr('id') === 'next') {
-		$(this).parent().parent().find('.active').next().addClass('active');
-		$(this).parent().parent().find('.active').eq(0).removeClass('active');
-		//Handles the pages when pagination is clicked. 
-		for(h=1; h<arrProjects.length; h++){
-			if(arrProjects[h].page === Number($(this).parent().parent().find('.active').children().attr('id'))){
-				arrProjects[h].makeCard('switchCard', true);
-			}
-		}
-		//Handles the situation in which the next pagination makes the id 2 have an active class
-		if ($(this).parent().parent().find('.active').children().attr('id') === '2') {
-			$('#prev').parent().removeClass('disabled');
-		}
-		//Handles the situation in which the next pagination makes the last id have an active class
-		else if (Number($(this).parent().parent().find('.active').children().attr('id')) === counter-1) {
-			$(this).parent().addClass('disabled');
-		}
-	}
-	//Handles the previous in pagination
-	else if ($(this).attr('id') === 'prev') {
-		$(this).parent().parent().find('.active').prev().addClass('active');
-		$(this).parent().parent().find('.active').eq(1).removeClass('active');
-		//Handles the pages when pagination is clicked. 
-		for(h=1; h<arrProjects.length; h++){
-			if(arrProjects[h].page === Number($(this).parent().parent().find('.active').children().attr('id'))){
-				arrProjects[h].makeCard('switchCard', true);
-			}
-		}
-		//Handles the situation in which the previous pagination makes the id 2 have an active class
-		if (Number($(this).parent().parent().find('.active').children().attr('id'))===counter-2) {
-			$('#next').parent().removeClass('disabled');
-		}
-		//Handles the situation in which the previous pagination makes the id 1 have an active class
-		else if ($(this).parent().parent().find('.active').children().attr('id') === '1') {
-			$(this).parent().addClass('disabled');
-		}
-	}
-});
-
-
-		
-		
-		
-		
-		
-
