@@ -105,3 +105,8 @@ body {
 		width: 75%;
 	}
 }
+.btn {
+	margin-bottom: 12px;
+	padding-left: 2rem;
+	padding-right: 2rem
+}

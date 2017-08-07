@@ -87,6 +87,9 @@ Project.prototype.makeCard = function(group, split) {
 	if(split){
 		column.addClass('col-lg-6');
 	}
+	else{
+		column.addClass('col-lg-10 offset-lg-1')
+	}
 	column.addClass('col-12 ' + group).attr('data-page', this.page);
 	$('#mainRow').append(column);
 	var projectName = $('<div>');
@@ -107,7 +110,7 @@ Project.prototype.makeCard = function(group, split) {
 	navItemCode.addClass('nav-item');
 	$(navTabs).append(navItemDescription, navItemCode);
 	var linkCode = $('<a>');
-	linkCode.addClass('nav-link').attr('data-toggle', 'tab').attr('href', '#' + this.name + 'Code').attr('role', 'tab').append('Github');
+	linkCode.addClass('nav-link').attr('data-toggle', 'tab').attr('href', '#' + this.name + 'Code').attr('role', 'tab').append('Tech Stack');
 	$(navItemCode).append(linkCode);
 	//Tab Content
 	var tabContent = $('<div>');
@@ -135,7 +138,7 @@ Project.prototype.makeCard = function(group, split) {
 	exceededText.addClass('card-text').append('<strong>Exceeded: </strong>' + this.exceeded);
 	var liveLink = $('<a>');
 	liveLink.attr('href', this.live).attr('target', '_blank').addClass('btn btn-primary').append('Go Live!');
-	$(cardBlockDescription).append(cardTitle, typeText, dateText, descriptionText, takeawaysText, exceededText, liveLink);
+	$(cardBlockDescription).append(cardTitle, liveLink, typeText, dateText, descriptionText, takeawaysText, exceededText);
 	//Tab Pane
 	var tabPaneCode = $('<div>');
 	tabPaneCode.addClass('tab-pane').attr('id', this.name + 'Code').attr('role', 'tabpanel');
@@ -153,7 +156,7 @@ Project.prototype.makeCard = function(group, split) {
 	resourcesText.addClass('card-text').append('<strong>Resources: </strong>' + this.resources);
 	var repoLink = $('<a>');
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
-	$(cardBlockCode).append(cardCodeTitle, techUsedText, resourcesText, repoLink);
+	$(cardBlockCode).append(cardCodeTitle, repoLink, techUsedText, resourcesText);
 }
 for (f=0; f<arrProjects.length; f++) {
 	if(arrProjects.length%2===1){
