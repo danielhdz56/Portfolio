@@ -15,6 +15,12 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
+var chalkboard = new Project('Chalkboard', 'assets/images/teacher.svg', 'Bootcamp Project', 'Aug 2, 2017 - Aug 9, 2017', 
+	'An app that allows teachers to upload files, take attendance, and send messages to students. The app maintains persistence by saving user data to firebase.',
+	'Taught myself firebase authentication, and storage to integrate to the app.',
+	'The ability to upload, parse, and display a csv file. This allows teachers to upload student information.',
+	'https://danielhdz56.github.io/MAD/', 'assets/images/desk.svg', 'HTML5, CSS3, JS, JQuery, Firebase (Authentication, Database, Storage), Bootstrap 4, Git, PapaParse, and Google Developers.',
+	'Stack Overflow, Google, PapaParse Documentation, MDN, Firebase Documentation, Whiteboard(the irony), and dry erase markers(again, the irony).', 'https://github.com/danielhdz56/MAD.git');
 var rps = new Project('RPS-Game', 'assets/images/scissors.svg', 'Bootcamp Homework', 'Jul 26, 2017 - Jul 31, 2017',
 	'Rock Paper Scissors Game that incorporates Firebase to host player data. The app retrieves choices made by the player to calculate the outcome.',
 	'Understand the use of keys to host messages sent to firebase.',
