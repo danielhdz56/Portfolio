@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Daniel's Homepage</title>
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
+
 <body>
 	<canvas id="canvas-basic"></canvas>
 	<nav class="navbar navbar-toggleable navbar-light">
-	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown"
+		  aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
-	  <a class="navbar-brand" href="index.html">
+		<a class="navbar-brand" href="index.html">
 	    <img src="assets/images/circles.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo">
 	  </a>
-	  <div class="collapse navbar-collapse" id="navbarDropdown">
-	  	<ul class="navbar-nav mr-auto">
-	  		<li class="nav-item active">
-	  			<a href="index.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
-	  		</li>
-			<li class="nav-item">
-	  			<a href="portfolio.html" class="nav-link">Portfolio</a>
-	  		</li>
-	  	</ul>
-	  </div>
+		<div class="collapse navbar-collapse" id="navbarDropdown">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a href="index.html" class="nav-link">Home<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a href="portfolio.html" class="nav-link">Portfolio</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 	<div class="jumbotron my-5">
-	  <div class="container">
-	  	<img class="float-left mr-2 hidden-sm-down" src="assets/images/engineer.svg" width="51" height="51" class="" alt="Logo">
-	    <h1 class="display-4">Daniel <span class="hidden-sm-down">H.</span></h1>
-	    <p class="lead">My name is Daniel and I am a driven mathematician turned web developer. My focus is currently on front-end but I am eagerly working my way towards full-stack as a student at the UT Houston Coding Bootcamp. To meet this goal I put in a minimum of 60 hours a week and do a lot of peer programming with other web developers. I am confident using HTML, CSS, Bootstrap, Javascript, JQuery, and Firebase. Please feel free to browse my portfolio section and send an email if you’d like to get in touch.</p>
-	  </div>
+		<div class="container">
+			<img class="float-left mr-2 hidden-sm-down" src="assets/images/engineer.svg" width="51" height="51" class="" alt="Logo">
+			<h1 class="display-4">Daniel <span class="hidden-sm-down">H.</span></h1>
+			<p class="lead">My name is Daniel and I am a driven mathematician turned web developer. My focus is currently on front-end but I am eagerly
+				working my way towards full-stack as a student at the UT Houston Coding Bootcamp. To meet this goal I put in a minimum
+				of 60 hours a week and do a lot of peer programming with other web developers. I am confident using HTML, CSS, Bootstrap,
+				Javascript, JQuery, and Firebase. Please feel free to browse my portfolio section and send an email if you’d like to
+				get in touch.</p>
+		</div>
 	</div>
 	<div class="container">
 		<div class="row">
-			<div id ="linkedinDiv" class="col-4 text-center">
+			<div id="linkedinDiv" class="col-4 text-center">
 				<a href="https://www.linkedin.com/in/daniel-hernandez-791726142" target="_blank">
 					<img id="linkedinLogo" class="socialMediaLogos" src="assets/images/linkedin-sign.svg"  alt="linkedin-logo">
 				</a>
@@ -54,54 +61,57 @@
 				<!-- Modal -->
 				<div class="modal fade" id="emailModalContent" tabindex="-1" role="dialog" aria-labelledby="#emailModalContentLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
-				    	<div class="modal-content">
-				      		<div class="modal-header">
-				        		<h4 class="modal-title" id="emailModalContentLabel">Contact Me</h4>
-				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="emailModalContentLabel">Contact Me</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          			<span aria-hidden="true">&times;</span>
 				        		</button>
-				      		</div>
-				      		<form id="contactform" method="post">
-				      			<div class="modal-body">
-						  			<div class="form-group">
+							</div>
+							<form id="contactform" method="post">
+								<div class="modal-body">
+									<div class="form-group">
 										<label for="email">Email address</label>
-									    <input type="email" class="form-control" id="email" name="_replyto" aria-describedby="emailHelp" placeholder="Enter email">
-									    <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else. Promise.</small>
+										<input type="email" class="form-control" id="email" name="_replyto" aria-describedby="emailHelp" placeholder="Enter email">
+										<small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else. Promise.</small>
 									</div>
 									<div class="form-group">
-					    				<label for="subject">Subject</label>
-					    				<input class="form-control" type="text">
-					  				</div>
-					  				<div class="form-group">
-					    				<label for="message">Message</label>
-					    				<textarea class="form-control" id="message" name="message" rows="3" placeholder="What do you want to tell me? I don't bite."></textarea>
-					  				</div>
-				      			</div>
-				      			<div class="modal-footer">
-						        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						        	<button type="submit" class="btn btn-primary">Send</button>
-						    	</div>
-						    	<input id="nextInput" type="hidden" name="_next"/>
+										<label for="subject">Subject</label>
+										<input class="form-control" type="text">
+									</div>
+									<div class="form-group">
+										<label for="message">Message</label>
+										<textarea class="form-control" id="message" name="message" rows="3" placeholder="What do you want to tell me? I don't bite."></textarea>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary">Send</button>
+								</div>
+								<input id="nextInput" type="hidden" name="_next" />
 								<input type="text" name="_gotcha" style="display:none" />
-						    </form>
-				    	</div>
-				  	</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<footer class="sticky-footer">
-      <div class="text-center">
-        &copy; Copyright Daniel Hernandez 2017
-      </div>
-    </footer>
+		<div class="text-center">
+			&copy; Copyright Daniel Hernandez 2017
+		</div>
+	</footer>
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <!-- Granim Gradient first, then my JS. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+	  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	  crossorigin="anonymous"></script>
+	<!-- Granim Gradient first, then my JS. -->
 	<script type="text/javascript" src="assets/javascript/granim.min.js"></script>
 	<script type="text/javascript" src="assets/javascript/canvas.js"></script>
 	<script type="text/javascript" src="assets/javascript/script.js"></script>
 </body>
+
 </html>

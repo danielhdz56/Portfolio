@@ -1,5 +1,6 @@
 var arrProjects = [];
-function Project(name, projectImage, type, date, description, takeaways, exceeded, live, githubImage, techUsed, resources, repo, page) {
+
+function Project(name, projectImage, type, date, description, takeaways, exceeded, live, githubImage, techUsed, resources, repo, node) {
 	this.name = name;
 	this.projectImage = projectImage;
 	this.type = type;
@@ -12,10 +13,17 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	this.techUsed = techUsed;
 	this.resources = resources;
 	this.repo = repo;
+	this.node = node;
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
-var chalkboard = new Project('Chalkboard', 'assets/images/teacher.svg', 'Bootcamp Project', 'Aug 2, 2017 - Aug 9, 2017', 
+var nodepad = new Project('Nodepad', 'assets/images/notepad.svg', 'Personal Project', 'Aug 11, 2017 - Aug 14, 2017',
+	'A notes application that lets you list, add, read, and remove notes through the terminal.',
+	'Learned the basics of node, arrow vs regular functions, debugging, and how to require commands and options by configuring yargs!',
+	'Set my .gitignore globally in order to not have to constantly delete folders when pushing to git.',
+	'https://github.com/danielhdz56/notes-node.git', 'assets/images/edit.svg', 'JS, Node.js, lodash, fs, yargs, and Git.',
+	'Stack Overflow, NPM Documentation, Udemy, and Google', 'https://github.com/danielhdz56/notes-node.git', true);
+var chalkboard = new Project('Chalkboard', 'assets/images/teacher.svg', 'Bootcamp Project', 'Aug 2, 2017 - Aug 9, 2017',
 	'An app that allows teachers to upload files, take attendance, and send messages to students. The app maintains persistence by saving user data to firebase.',
 	'Taught myself firebase authentication, and storage to integrate to the app.',
 	'The ability to upload, parse, and display a csv file. This allows teachers to upload student information.',
@@ -88,13 +96,12 @@ var wireframe = new Project('Wireframe', 'assets/images/mill.svg', 'Bootcamp Hom
 	'https://danielhdz56.github.io/HW-Wireframe/', 'assets/images/engineer.svg', 'HTML5, CSS3, and Git.',
 	'Stack Overflow, Google, composition book, and pens.', 'https://github.com/danielhdz56/HW-Wireframe.git');
 
-Project.prototype.makeCard = function(group, split) {
+Project.prototype.makeCard = function (group, split) {
 	var column = $('<div>');
-	if(split){
+	if (split) {
 		column.addClass('col-lg-6');
-	}
-	else{
-		column.addClass('col-lg-10 offset-lg-1')
+	} else {
+		column.addClass('col-lg-12');
 	}
 	column.addClass('col-12 ' + group).attr('data-page', this.page);
 	$('#mainRow').append(column);
@@ -143,7 +150,12 @@ Project.prototype.makeCard = function(group, split) {
 	var exceededText = $('<p>');
 	exceededText.addClass('card-text').append('<strong>Exceeded: </strong>' + this.exceeded);
 	var liveLink = $('<a>');
-	liveLink.attr('href', this.live).attr('target', '_blank').addClass('btn btn-primary').append('Go Live!');
+	liveLink.attr('href', this.live).attr('target', '_blank').addClass('btn btn-primary');
+	if (this.node) {
+		liveLink.append('View the Code!');
+	} else {
+		liveLink.append('Go Live!');
+	}
 	$(cardBlockDescription).append(cardTitle, liveLink, typeText, dateText, descriptionText, takeawaysText, exceededText);
 	//Tab Pane
 	var tabPaneCode = $('<div>');
@@ -164,16 +176,14 @@ Project.prototype.makeCard = function(group, split) {
 	repoLink.attr('href', this.repo).attr('target', '_blank').addClass('btn btn-primary').append('View the Code!');
 	$(cardBlockCode).append(cardCodeTitle, repoLink, techUsedText, resourcesText);
 }
-for (f=0; f<arrProjects.length; f++) {
-	if(arrProjects.length%2===1){
-		if(f===0){
+for (f = 0; f < arrProjects.length; f++) {
+	if (arrProjects.length % 2 === 1) {
+		if (f === 0) {
 			arrProjects[f].makeCard('displayCard', false);
-		}
-		else{
+		} else {
 			arrProjects[f].makeCard('switchCard', true);
 		}
-	}
-	else {
+	} else {
 		arrProjects[f].makeCard('switchCard', true);
 	}
 }

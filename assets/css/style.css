@@ -1,4 +1,5 @@
 /* Gradient Background */
+
 #canvas-basic {
 	position: absolute;
 	display: block;
@@ -10,109 +11,149 @@
 	left: 0;
 	z-index: -1;
 }
+
+
 /* Jumbotron and navbar */
-.jumbotron, .navbar {
+
+.jumbotron,
+.navbar {
 	background: rgba(151, 161, 189, 0.7);
 }
+
 @media screen and (max-width: 767px) {
 	.jumbotron h1 {
 		text-align: center;
 	}
 }
+
 @media screen and (min-width: 768px) {
 	.jumbotron {
 		margin-left: 3rem;
 		margin-right: 3rem;
 	}
 }
+
+
 /* Cards */
+
 .card {
 	border-color: #2d404e;
 }
+
 .card-header {
 	background: #2d404e;
 }
+
 .card-text {
-    text-align: left;
-    margin-bottom: 0;
+	text-align: left;
+	margin-bottom: 0;
 }
-.switchCard, .displayCard {
+
+.switchCard,
+.displayCard {
 	margin-bottom: 3rem;
-}	
+}
+
 .nav-tabs .nav-item.show .nav-link {
 	border-color: rgba(0, 0, 0, 0.22) rgba(0, 0, 0, 0.22) rgba(255, 255, 255, 0);
 }
+
 .nav-tabs .nav-link {
 	border: 1px solid rgba(255, 255, 255, 0.02);
 }
+
 .nav-tabs .nav-link:hover {
 	border: 1px solid rgba(255, 255, 255, 0.04);
 }
-.nav-tabs .nav-link.active, .card {
+
+.nav-tabs .nav-link.active,
+.card {
 	background: #89bdc2;
 	border-color: rgba(0, 0, 0, 0.09) rgba(0, 0, 0, 0.09) #89bdc2;
 }
+
 a {
 	color: #48b19b;
 }
+
 a:hover {
 	color: #50ffda;
 }
+
 .btn-primary {
-    background-color: #323ec7;
-    border-color: #323ec7;
+	background-color: #323ec7;
+	border-color: #323ec7;
 }
+
+
 /* Email Modal */
+
 #emailModal {
 	border: none;
 	background: 0 0;
 	padding: 0;
 }
-legend, label {
+
+legend,
+label {
 	font-size: 1.25rem;
 }
+
 .form-check-label {
 	font-size: 1.0rem;
 }
+
+
 /* Sticky Footer */
+
 html {
 	position: relative;
 	min-height: 100%;
 }
+
 body {
 	/* Margin bottom by footer height */
 	margin-bottom: 60px;
 }
+
 .sticky-footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	/* Set the fixed height of the footer here */
 	height: 60px;
-	line-height:60px; /* Vertically center the text here */
+	line-height: 60px;
+	/* Vertically center the text here */
 }
+
 #linkedinDiv {
 	padding-top: 5px;
 }
-#linkedinLogo { 
+
+#linkedinLogo {
 	height: 90%;
 }
+
 .socialMediaLogos {
 	width: 50%;
 }
-@media screen and (max-width: 425px){
+
+@media screen and (max-width: 425px) {
 	.socialMediaLogos {
 		width: 75%;
 	}
 }
+
 .btn {
 	margin-bottom: 12px;
 	padding-left: 2rem;
 	padding-right: 2rem
 }
+
 li>#emailModal {
 	padding-top: 2px;
 }
+
 #emailModal {
 	cursor: pointer;
 }
