@@ -13,16 +13,23 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	this.techUsed = techUsed;
 	this.resources = resources;
 	this.repo = repo;
-	this.node = node;
+	this.node = node; // is it a node project
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
+
+var weatherapp = new Project('WeatherApp', 'assets/images/temperature.svg', 'Personal Project', 'Aug 14, 2017 - Aug 15, 2017',
+	'A weather application that lets you input an address to retrieve the weather through the terminal.',
+	'Understood the benefits of using promises over callbacks when handling asynchronous requests.',
+	'Made two versions: using callbacks with the require npm package (app.js), using promises with the axios npm package (app-promise.js).',
+	'https://github.com/danielhdz56/weather-app.git', 'assets/images/sun.svg', 'JS, Node.js, fs, lodash, yargs, axios, request, and Git.',
+	'Stack Overflow, NPM Documentation, Udemy, and Google.', 'https://github.com/danielhdz56/weather-app.git', true);
 var nodepad = new Project('Nodepad', 'assets/images/notepad.svg', 'Personal Project', 'Aug 11, 2017 - Aug 14, 2017',
 	'A notes application that lets you list, add, read, and remove notes through the terminal.',
 	'Learned the basics of node, arrow vs regular functions, debugging, and how to require commands and options by configuring yargs!',
 	'Set my .gitignore globally in order to not have to constantly delete folders when pushing to git.',
 	'https://github.com/danielhdz56/notes-node.git', 'assets/images/edit.svg', 'JS, Node.js, lodash, fs, yargs, and Git.',
-	'Stack Overflow, NPM Documentation, Udemy, and Google', 'https://github.com/danielhdz56/notes-node.git', true);
+	'Stack Overflow, NPM Documentation, Udemy, and Google.', 'https://github.com/danielhdz56/notes-node.git', true);
 var chalkboard = new Project('Chalkboard', 'assets/images/teacher.svg', 'Bootcamp Project', 'Aug 2, 2017 - Aug 9, 2017',
 	'An app that allows teachers to upload files, take attendance, and send messages to students. The app maintains persistence by saving user data to firebase.',
 	'Taught myself firebase authentication, and storage to integrate to the app.',
