@@ -17,6 +17,12 @@ function Project(name, projectImage, type, date, description, takeaways, exceede
 	//This pushes each instance of Project into the array arrProjects
 	arrProjects.push(this);
 }
+var liriapp = new Project('BossLiri', 'assets/images/clapperboard.svg', 'Bootcamp Homework', 'Aug 15, 2017 - Aug 22, 2017',
+	'A website that uses socket.io to enable real-time bidrectional event-based communication. Clients can load my twitter feed, and search for a song/movie',
+	'Refactored my code so it is easier to use and maintain, designed my first client side web application.',
+	'In liri 2.0 I used inquirer.js to ease the process of parsing input while improving the user experience. Self taught myself to use express, socket.io, and handlebars!',
+	'https://bossliri.herokuapp.com/', 'assets/images/twitter.svg', 'JS, Node.js, express, socket.io, handlebars, heroku, spotify(npm), twitter(npm), omdb(npm), fs, lodash, yargs, axios, request, and Git.',
+	'Stack Overflow, NPM Documentation, Udemy, and Google', 'https://github.com/danielhdz56/liri-node-app.git');
 
 var weatherapp = new Project('WeatherApp', 'assets/images/temperature.svg', 'Personal Project', 'Aug 14, 2017 - Aug 15, 2017',
 	'A weather application that lets you input an address to retrieve the weather through the terminal.',
